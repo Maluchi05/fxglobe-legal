@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account — FX Globe</title>
+<style>
+  :root {
+    --bg: #0B0F14;
+    --surface: #131922;
+    --surface-2: #1B2330;
+    --border: #26303F;
+    --text-primary: #EDF1F5;
+    --text-secondary: #8B98A9;
+    --baseblue: #3B82F6;
+    --paleblue: #93C5FD;
+    --lossred: #EF4444;
+    --forexgreen: #22C55E;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 0 20px 80px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  header {
+    padding: 48px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--baseblue), var(--paleblue));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 15px; color: #06101F;
+    flex-shrink: 0;
+  }
+  .brand { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+  .brand-sub { font-size: 12px; color: var(--text-secondary); }
+
+  h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .lede {
+    color: var(--text-secondary);
+    font-size: 14.5px;
+    margin-bottom: 32px;
+    max-width: 52ch;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paleblue);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .card p { font-size: 14.5px; color: var(--text-primary); margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul { padding-left: 18px; font-size: 14.5px; }
+  .card li { margin-bottom: 8px; color: var(--text-primary); }
+  .card li::marker { color: var(--baseblue); }
+
+  .account-types {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .type-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 14px;
+    background: var(--surface-2);
+    border-radius: 10px;
+    font-size: 13.5px;
+  }
+  .type-row strong { color: var(--text-primary); font-weight: 600; }
+  .type-row span { color: var(--text-secondary); font-size: 12.5px; text-align: right; }
+
+  .cta {
+    display: block;
+    text-align: center;
+    background: var(--baseblue);
+    color: #06101F;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    margin: 22px 0 10px;
+    transition: filter 0.15s ease;
+  }
+  .cta:hover { filter: brightness(1.08); }
+  .cta-note {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+    margin-bottom: 30px;
+  }
+
+  .warn {
+    border-color: rgba(239,68,68,0.35);
+    background: rgba(239,68,68,0.06);
+  }
+  .warn h2 { color: var(--lossred); }
+
+  code {
+    background: var(--surface-2);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 13px;
+    color: var(--paleblue);
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer a { color: var(--paleblue); text-decoration: none; }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 22px; }
+    header { padding-top: 32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo-mark">FX</div>
+    <div>
+      <div class="brand">FX Globe</div>
+      <div class="brand-sub">Account &amp; Data Deletion</div>
+    </div>
+  </header>
+
+  <h1>Delete your account and data</h1>
+  <p class="lede">
+    You can request permanent deletion of your FX Globe account and all associated
+    data at any time. This page explains what gets deleted, how long it takes,
+    and how to submit your request.
+  </p>
+
+  <a class="cta" href="mailto:fxglobe@cimkoconsulting.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20FX%20Globe%20account%20and%20associated%20data.%0A%0AAccount%20email%20used%20to%20sign%20up%3A%20%0AAccount%20type%20(Consumer%20%2F%20Provider)%3A%20%0A%0AI%20understand%20this%20action%20is%20permanent%20and%20cannot%20be%20undone.">
+    Email us to request deletion
+  </a>
+  <p class="cta-note">
+    Opens your email app addressed to our support team, pre-filled with the details we need.
+  </p>
+
+  <div class="card">
+    <h2>How to request deletion</h2>
+    <ul>
+      <li>Tap the button above, or email <code>fxglobe@cimkoconsulting.com</code> directly from the address linked to your FX Globe account.</li>
+      <li>Include the email address you signed up with, and whether you have a Consumer or Provider account.</li>
+      <li>We verify the request came from the account owner, then permanently delete the account and its data.</li>
+      <li>You'll receive a confirmation email once deletion is complete, usually within 7 business days.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>What gets deleted</h2>
+    <div class="account-types">
+      <div class="type-row">
+        <strong>Consumer accounts</strong>
+        <span>Profile, saved signals, follows, notification tokens, interaction history</span>
+      </div>
+      <div class="type-row">
+        <strong>Provider accounts</strong>
+        <span>Profile, posted signals, follower relationships, analytics, KYC records</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card warn">
+    <h2>Before you request deletion</h2>
+    <ul>
+      <li>If you have an active paid subscription, cancel it first — deleting your account does not automatically stop billing. Mention any active subscription in your request and we'll help you cancel it as part of the process.</li>
+      <li>Deletion is permanent. Signals you've posted, your follower history, and your performance stats cannot be recovered once removed.</li>
+      <li>Some information may be retained where we're legally required to (for example, transaction records for financial compliance), even after the rest of your data is deleted.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>© 2026 FX Globe</span>
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </footer>
+
+</div>
+</body>
+</html>
