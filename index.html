@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FX Globe — Trading Signals That Prove Themselves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0E14;
+    --ink-2: #0D1119;
+    --surface: #131922;
+    --surface-2: #1A212C;
+    --line: rgba(255,255,255,0.08);
+    --text: #F5F7FA;
+    --text-dim: #8B96A5;
+    --blue: #448AFF;
+    --blue-deep: #2962FF;
+    --gold: #FFC107;
+    --green: #00E676;
+    --red: #EF5350;
+    --purple: #AB47BC;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Poppins', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--blue); color: #06101F; }
+  a { color: inherit; }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,14,20,0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 18px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-mark {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px; color: #fff; flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(68,138,255,0.3), 0 6px 20px rgba(68,138,255,0.3);
+  }
+  .brand-word { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+  .nav-menu { display: flex; align-items: center; gap: 36px; }
+  .nav-menu a {
+    font-size: 13.5px; font-weight: 500; color: var(--text-dim);
+    text-decoration: none; transition: color 0.15s ease;
+  }
+  .nav-menu a:hover { color: var(--text); }
+  .nav-cta {
+    display: flex; align-items: center; gap: 18px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--sans); font-weight: 600; font-size: 13.5px;
+    padding: 11px 20px; border-radius: 10px; text-decoration: none;
+    cursor: pointer; border: none; transition: all 0.18s ease;
+  }
+  .btn-primary { background: var(--blue); color: #06101F; box-shadow: 0 4px 18px rgba(68,138,255,0.32); }
+  .btn-primary:hover { background: #5A97FF; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.03); }
+  .btn-sm { padding: 8px 16px; font-size: 12.5px; }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative; padding: 172px 0 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 78% 8%, rgba(68,138,255,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 400px at 10% 30%, rgba(0,230,118,0.06), transparent 60%);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px;
+    align-items: center; position: relative; z-index: 3;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--green);
+    background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.22);
+    padding: 7px 13px; border-radius: 30px; margin-bottom: 26px;
+  }
+  .eyebrow .pulse {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 0 0 rgba(0,230,118,0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,230,118,0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(0,230,118,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,230,118,0); }
+  }
+  h1.hero-h {
+    font-size: 62px; font-weight: 800; line-height: 1.04;
+    letter-spacing: -0.03em; margin-bottom: 24px;
+  }
+  h1.hero-h .accent { color: var(--blue); }
+  h1.hero-h .strike-wrap { position: relative; display: inline-block; }
+  .hero-sub {
+    font-size: 17px; color: var(--text-dim); line-height: 1.65;
+    max-width: 480px; margin-bottom: 38px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 16px; margin-bottom: 54px; }
+  .btn-lg { padding: 15px 26px; font-size: 14.5px; border-radius: 12px; }
+
+  .hero-trust { display: flex; align-items: center; gap: 26px; }
+  .avatar-stack { display: flex; }
+  .avatar-stack .av {
+    width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--ink);
+    margin-left: -8px; display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: #06101F;
+  }
+  .avatar-stack .av:first-child { margin-left: 0; }
+  .hero-trust-text { font-size: 12.5px; color: var(--text-dim); }
+  .hero-trust-text strong { color: var(--text); }
+
+  /* Signal card mockup */
+  .hero-visual { position: relative; height: 480px; }
+  .candle-field {
+    position: absolute; inset: -40px -20px auto -20px; height: 420px;
+    display: flex; align-items: flex-end; gap: 7px; opacity: 0.5;
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 60% 30%, black 20%, transparent 85%);
+            mask-image: radial-gradient(ellipse 90% 70% at 60% 30%, black 20%, transparent 85%);
+  }
+  .candle-field .c { width: 9px; border-radius: 2px; }
+
+  .signal-card {
+    position: relative; z-index: 4; margin-left: auto; margin-right: 10px;
+    width: 340px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 18px;
+    padding: 22px; box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.02);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .sc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .sc-pair { display: flex; align-items: center; gap: 9px; }
+  .sc-pair .pair-icon {
+    width: 30px; height: 30px; border-radius: 8px; background: rgba(68,138,255,0.12);
+    display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: var(--blue);
+    font-family: var(--mono);
+  }
+  .sc-pair-name { font-size: 14.5px; font-weight: 700; }
+  .sc-badge {
+    font-family: var(--mono); font-size: 11px; font-weight: 700;
+    background: rgba(0,230,118,0.12); color: var(--green);
+    padding: 4px 9px; border-radius: 6px;
+  }
+  .sc-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px dashed var(--line); font-family: var(--mono); font-size: 12.5px; }
+  .sc-row:last-of-type { border-bottom: none; }
+  .sc-row .k { color: var(--text-dim); }
+  .sc-row .v { font-weight: 600; }
+  .sc-row .v.up { color: var(--green); }
+  .sc-row .v.down { color: var(--red); }
+  .sc-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+  .sc-provider { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-dim); }
+  .sc-provider .dot { width: 20px; height: 20px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--blue)); }
+  .sc-acc { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--gold); }
+
+  .rank-chip {
+    position: absolute; z-index: 5; left: -6px; top: 56px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 16px; box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+    display: flex; align-items: center; gap: 10px;
+    animation: float 6s ease-in-out infinite; animation-delay: -3s;
+  }
+  .rank-chip .rank-num { font-family: var(--mono); font-weight: 800; font-size: 15px; color: var(--gold); }
+  .rank-chip .rank-label { font-size: 10.5px; color: var(--text-dim); }
+  .rank-chip .rank-val { font-size: 12.5px; font-weight: 700; }
+
+  /* Ticker tape */
+  .ticker-wrap {
+    position: relative; z-index: 3; margin-top: 60px;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--ink-2); overflow: hidden;
+  }
+  .ticker-track { display: flex; gap: 44px; padding: 15px 0; width: max-content; animation: ticker 32s linear infinite; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .tick-item { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+  .tick-item .sym { color: var(--text-dim); font-weight: 500; }
+  .tick-item .px { font-weight: 700; }
+  .tick-item .chg { font-weight: 600; }
+  .tick-item .chg.up { color: var(--green); }
+  .tick-item .chg.down { color: var(--red); }
+
+  /* ============ SECTION SHELL ============ */
+  section { position: relative; padding: 120px 0; }
+  .section-alt { background: var(--ink-2); }
+  .sec-head { max-width: 640px; margin-bottom: 64px; }
+  .sec-eyebrow {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 14px; display: block;
+  }
+  .sec-title { font-size: 38px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; margin-bottom: 16px; }
+  .sec-sub { font-size: 15.5px; color: var(--text-dim); line-height: 1.7; }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* ============ STATS BAR ============ */
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+    margin-top: -1px; background: var(--surface);
+  }
+  .stat-cell { padding: 34px 30px; border-right: 1px solid var(--line); }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num { font-family: var(--mono); font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
+  .stat-num .unit { font-size: 18px; color: var(--text-dim); }
+  .stat-label { font-size: 12.5px; color: var(--text-dim); margin-top: 6px; }
+
+  /* ============ FEATURES GRID ============ */
+  .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .feat-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    padding: 30px; transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .feat-card:hover { border-color: rgba(68,138,255,0.35); transform: translateY(-3px); }
+  .feat-icon {
+    width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .feat-title { font-size: 16px; font-weight: 700; margin-bottom: 9px; letter-spacing: -0.005em; }
+  .feat-desc { font-size: 13.5px; color: var(--text-dim); line-height: 1.65; }
+
+  /* ============ SPLIT: TRADERS / PROVIDERS ============ */
+  .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .split-card {
+    border-radius: 22px; padding: 42px; position: relative; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .split-card.traders { background: linear-gradient(160deg, rgba(68,138,255,0.10), var(--surface) 60%); }
+  .split-card.providers { background: linear-gradient(160deg, rgba(255,193,7,0.09), var(--surface) 60%); }
+  .split-tag { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+  .split-card.traders .split-tag { color: var(--blue); }
+  .split-card.providers .split-tag { color: var(--gold); }
+  .split-title { font-size: 25px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+  .split-desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 26px; max-width: 420px; }
+  .split-list { list-style: none; margin-bottom: 30px; }
+  .split-list li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; margin-bottom: 11px; }
+  .split-list li svg { flex-shrink: 0; }
+
+  /* ============ HOW IT WORKS ============ */
+  .steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+  .steps::before {
+    content: ''; position: absolute; top: 27px; left: 60px; right: 60px; height: 1px;
+    background: repeating-linear-gradient(to right, var(--line) 0 8px, transparent 8px 16px);
+  }
+  .step { position: relative; padding-right: 20px; }
+  .step-num {
+    width: 54px; height: 54px; border-radius: 50%; background: var(--surface);
+    border: 1px solid var(--line); display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-weight: 700; font-size: 16px; color: var(--blue);
+    margin-bottom: 22px; position: relative; z-index: 2;
+  }
+  .step-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+  /* ============ LEADERBOARD PREVIEW ============ */
+  .lb-wrap {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden;
+  }
+  .lb-head-row {
+    display: grid; grid-template-columns: 60px 1.6fr 1fr 1fr 1fr; gap: 10px;
+    padding: 16px 26px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text-dim); border-bottom: 1px solid var(--line);
+  }
+  .lb-row {
+    display: grid; grid-template-columns: 60px 1.6fr 1fr 1fr 1fr; gap: 10px; align-items: center;
+    padding: 18px 26px; border-bottom: 1px solid var(--line); transition: background 0.15s ease;
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: rgba(255,255,255,0.02); }
+  .lb-rank { font-family: var(--mono); font-weight: 800; font-size: 15px; }
+  .lb-rank.gold { color: var(--gold); }
+  .lb-provider { display: flex; align-items: center; gap: 12px; }
+  .lb-avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; }
+  .lb-name { font-size: 13.5px; font-weight: 600; }
+  .lb-tag { font-size: 11px; color: var(--text-dim); }
+  .lb-stat { font-family: var(--mono); font-size: 13px; font-weight: 600; }
+  .lb-stat.green { color: var(--green); }
+  .lb-bar-bg { height: 5px; background: var(--surface-2); border-radius: 3px; overflow: hidden; margin-top: 5px; width: 70px; }
+  .lb-bar-fill { height: 100%; background: var(--green); border-radius: 3px; }
+
+  /* ============ TRUST / SECURITY ============ */
+  .trust-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+  .trust-card { text-align: left; padding: 26px 22px; border-radius: 16px; border: 1px solid var(--line); }
+  .trust-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .trust-title { font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+  .trust-desc { font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+
+  .risk-banner {
+    margin-top: 60px; border: 1px solid rgba(255,193,7,0.25); background: rgba(255,193,7,0.05);
+    border-radius: 16px; padding: 22px 26px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .risk-banner svg { flex-shrink: 0; margin-top: 2px; }
+  .risk-banner-text { font-size: 13px; color: #E8C468; line-height: 1.65; }
+  .risk-banner-text strong { color: var(--gold); }
+
+  /* ============ CTA BAND ============ */
+  .cta-band {
+    border-radius: 28px; padding: 80px 60px; text-align: center; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #0F1E3D, #0A1424 60%);
+    border: 1px solid rgba(68,138,255,0.25);
+  }
+  .cta-band::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 600px 300px at 50% 0%, rgba(68,138,255,0.28), transparent 70%);
+  }
+  .cta-title { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; position: relative; }
+  .cta-sub { font-size: 15px; color: var(--text-dim); margin-bottom: 34px; position: relative; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; position: relative; }
+
+  /* ============ FOOTER ============ */
+  footer { padding: 80px 0 0; border-top: 1px solid var(--line); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 60px; }
+  .foot-brand-desc { font-size: 13px; color: var(--text-dim); line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .foot-col-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 18px; }
+  .foot-col a { display: block; font-size: 13.5px; color: var(--text); text-decoration: none; margin-bottom: 13px; opacity: 0.85; }
+  .foot-col a:hover { opacity: 1; color: var(--blue); }
+  .foot-bottom {
+    border-top: 1px solid var(--line); padding: 26px 0 34px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    font-size: 12px; color: var(--text-dim);
+  }
+  .foot-disclaimer { font-size: 11.5px; color: var(--text-dim); opacity: 0.7; max-width: 900px; margin: 0 auto 20px; text-align: center; line-height: 1.6; }
+
+  [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 980px) {
+    .container { padding: 0 22px; }
+    .nav-menu { display: none; }
+    .nav-inner { padding: 16px 22px; }
+    .hero { padding-top: 130px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    h1.hero-h { font-size: 38px; }
+    .hero-visual { height: 380px; margin-top: 20px; }
+    .signal-card { width: 100%; margin: 0; }
+    .rank-chip { display: none; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+    .stat-cell { border-bottom: 1px solid var(--line); }
+    .feat-grid { grid-template-columns: 1fr; }
+    .split-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 34px; }
+    .steps::before { display: none; }
+    .trust-grid { grid-template-columns: repeat(2,1fr); }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .lb-head-row, .lb-row { grid-template-columns: 40px 1.4fr 1fr; }
+    .lb-row .lb-hide, .lb-head-row .lb-hide { display: none; }
+    .cta-band { padding: 56px 26px; }
+    .cta-title { font-size: 27px; }
+    section { padding: 80px 0; }
+    .sec-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-mark">FX</div>
+      <div class="brand-word">FX Globe</div>
+    </a>
+    <div class="nav-menu">
+      <a href="#product">Product</a>
+      <a href="#providers">For Providers</a>
+      <a href="#leaderboard">Leaderboard</a>
+      <a href="#security">Security</a>
+      <a href="privacy-policy.html">Legal</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#cta" class="btn btn-ghost btn-sm">Become a Provider</a>
+      <a href="#cta" class="btn btn-primary btn-sm">Get the App</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span>Live signal network</div>
+      <h1 class="hero-h">Signals that have to <span class="accent">earn</span> your trust.</h1>
+      <p class="hero-sub">FX Globe ranks every forex and crypto signal provider on real, tracked accuracy — not follower counts. Follow the ones who actually perform, and see the receipts before you do.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-primary btn-lg">Explore Signals</a>
+        <a href="#providers" class="btn btn-ghost btn-lg">Become a Provider →</a>
+      </div>
+      <div class="hero-trust">
+        <div class="avatar-stack">
+          <div class="av" style="background:linear-gradient(135deg,#448AFF,#2962FF)">JM</div>
+          <div class="av" style="background:linear-gradient(135deg,#AB47BC,#6A1B9A)">RK</div>
+          <div class="av" style="background:linear-gradient(135deg,#FFC107,#FF9800)">TS</div>
+          <div class="av" style="background:linear-gradient(135deg,#00E676,#00A152)">AF</div>
+        </div>
+        <div class="hero-trust-text"><strong>Verified providers</strong> pass KYC before a single signal goes live</div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="candle-field" id="heroCandles"></div>
+      <div class="rank-chip">
+        <span class="rank-num">#1</span>
+        <div>
+          <div class="rank-label">Top provider</div>
+          <div class="rank-val">91.4% accuracy</div>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div style="font-family:var(--mono);font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px">Example signal card</div>
+        <div class="sc-top">
+          <div class="sc-pair">
+            <div class="pair-icon">FX</div>
+            <div class="sc-pair-name">EUR/USD</div>
+          </div>
+          <div class="sc-badge">BUY</div>
+        </div>
+        <div class="sc-row"><span class="k">Entry</span><span class="v">1.0842</span></div>
+        <div class="sc-row"><span class="k">Stop Loss</span><span class="v down">1.0810</span></div>
+        <div class="sc-row"><span class="k">Take Profit</span><span class="v up">1.0920</span></div>
+        <div class="sc-row"><span class="k">Risk / Reward</span><span class="v">1 : 2.4</span></div>
+        <div class="sc-foot">
+          <div class="sc-provider"><span class="dot"></span>Marcus_FX</div>
+          <div class="sc-acc">87.3% ★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</header>
+
+<!-- ============ STATS ============ -->
+<section style="padding-top:70px">
+  <div class="container" data-reveal>
+    <div class="stats-bar">
+      <div class="stat-cell"><div class="stat-num">Every</div><div class="stat-label">Signal tracked from post to close</div></div>
+      <div class="stat-cell"><div class="stat-num">100<span class="unit">%</span></div><div class="stat-label">Providers KYC-verified before posting</div></div>
+      <div class="stat-cell"><div class="stat-num">0<span class="unit">%</span></div><div class="stat-label">Signals hidden from accuracy tracking</div></div>
+      <div class="stat-cell"><div class="stat-num">Public</div><div class="stat-label">Every ranking, methodology included</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="product">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <span class="sec-eyebrow">Product</span>
+      <h2 class="sec-title">Everything you need to follow the market, minus the noise</h2>
+      <p class="sec-sub">One stream for signals, one leaderboard for reputation, one place to see who's actually right.</p>
+    </div>
+    <div class="feat-grid" data-reveal>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(68,138,255,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#448AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <div class="feat-title">Signal Stream</div>
+        <div class="feat-desc">A live feed of entries, stop losses, and take-profits from every provider you follow — forex and crypto, side by side.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(255,193,7,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10l-1 8a4 4 0 0 1-8 0Z"/><path d="M17 5h2a2 2 0 0 1 0 4h-1.5"/><path d="M7 5H5a2 2 0 0 0 0 4h1.5"/></svg>
+        </div>
+        <div class="feat-title">Ranked Leaderboard</div>
+        <div class="feat-desc">Providers are ranked on tracked, weighted accuracy — not vibes. See exactly who's performing before you follow.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(0,230,118,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="feat-title">Real-Time Alerts</div>
+        <div class="feat-desc">Push notifications the moment a followed provider posts — no refreshing, no missed entries.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(171,71,188,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#AB47BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+        </div>
+        <div class="feat-title">Verified Providers</div>
+        <div class="feat-desc">Every provider passes KYC before promotion — no anonymous accounts posting unaccountable calls.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(239,83,80,0.12)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF5350" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21 12 17l-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/></svg>
+        </div>
+        <div class="feat-title">Saved Signals</div>
+        <div class="feat-desc">Bookmark anything worth a second look and build your own reference library over time.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon" style="background:rgba(255,255,255,0.08)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5F7FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="feat-title">Market News</div>
+        <div class="feat-desc">A curated forex and crypto news feed, so context is never more than a tap from the signal itself.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPLIT: TRADERS / PROVIDERS ============ -->
+<section class="section-alt" id="providers">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <span class="sec-eyebrow">Two sides, one marketplace</span>
+      <h2 class="sec-title">Built for people who follow, and people who lead</h2>
+    </div>
+    <div class="split-grid" data-reveal>
+      <div class="split-card traders">
+        <span class="split-tag">For Traders</span>
+        <div class="split-title">Follow the signal, see the track record</div>
+        <p class="split-desc">Browse providers by accuracy, not popularity. Follow the ones whose numbers hold up, and build a stream that reflects your risk appetite.</p>
+        <ul class="split-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#448AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Discover providers ranked by weighted accuracy</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#448AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Instant push alerts on every new signal</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#448AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Save, filter, and revisit signals anytime</li>
+        </ul>
+        <a href="#cta" class="btn btn-primary btn-sm">Start following →</a>
+      </div>
+      <div class="split-card providers">
+        <span class="split-tag">For Providers</span>
+        <div class="split-title">Turn a track record into a following</div>
+        <p class="split-desc">Post signals, build a public accuracy history, and grow a following that can see exactly why you're worth trusting.</p>
+        <ul class="split-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Automated accuracy & win-rate analytics</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>KYC verification badge on your profile</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Climb the leaderboard as your record grows</li>
+        </ul>
+        <a href="#cta" class="btn btn-ghost btn-sm">Apply as a provider →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section>
+  <div class="container">
+    <div class="sec-head center" data-reveal>
+      <span class="sec-eyebrow">Getting started</span>
+      <h2 class="sec-title">From download to your first signal</h2>
+    </div>
+    <div class="steps" data-reveal>
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Create your account</div>
+        <div class="step-desc">Sign up with email or Google — takes under a minute.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Browse the leaderboard</div>
+        <div class="step-desc">Sort providers by accuracy, pair specialty, or following.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Follow & get alerted</div>
+        <div class="step-desc">Every new signal from providers you follow reaches you instantly.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Track what matters</div>
+        <div class="step-desc">Save signals, watch accuracy evolve, and adjust who you follow.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERBOARD PREVIEW ============ -->
+<section class="section-alt" id="leaderboard">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <span class="sec-eyebrow">How ranking works</span>
+      <h2 class="sec-title">Reputation, ranked in public</h2>
+      <p class="sec-sub">Illustrative example of how providers will be ranked inside the app — sorted by weighted monthly accuracy. Live rankings populate as real providers post real signals.</p>
+    </div>
+    <div class="lb-wrap" data-reveal>
+      <div class="lb-head-row" style="position:relative">
+        <div>Rank</div><div>Provider</div><div class="lb-hide">Signals</div><div>Accuracy</div><div>Win Rate</div>
+      </div>
+      <div style="padding:10px 26px;font-family:var(--mono);font-size:10.5px;color:var(--text-dim);border-bottom:1px solid var(--line);letter-spacing:0.04em">SAMPLE DATA — for illustration only</div>
+      <div class="lb-row">
+        <div class="lb-rank gold">#1</div>
+        <div class="lb-provider"><div class="lb-avatar" style="background:linear-gradient(135deg,#FFC107,#FF9800)"></div><div><div class="lb-name">Marcus_FX</div><div class="lb-tag">EUR/USD · GBP/JPY</div></div></div>
+        <div class="lb-stat lb-hide">312</div>
+        <div><div class="lb-stat green">91.4%</div><div class="lb-bar-bg"><div class="lb-bar-fill" style="width:91%"></div></div></div>
+        <div class="lb-stat">88.2%</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank">#2</div>
+        <div class="lb-provider"><div class="lb-avatar" style="background:linear-gradient(135deg,#AB47BC,#6A1B9A)"></div><div><div class="lb-name">RyoTrades</div><div class="lb-tag">BTC/USD · ETH/USD</div></div></div>
+        <div class="lb-stat lb-hide">278</div>
+        <div><div class="lb-stat green">89.1%</div><div class="lb-bar-bg"><div class="lb-bar-fill" style="width:89%"></div></div></div>
+        <div class="lb-stat">85.6%</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank">#3</div>
+        <div class="lb-provider"><div class="lb-avatar" style="background:linear-gradient(135deg,#448AFF,#2962FF)"></div><div><div class="lb-name">AdaFX_Signals</div><div class="lb-tag">USD/JPY · Gold</div></div></div>
+        <div class="lb-stat lb-hide">245</div>
+        <div><div class="lb-stat green">87.3%</div><div class="lb-bar-bg"><div class="lb-bar-fill" style="width:87%"></div></div></div>
+        <div class="lb-stat">83.9%</div>
+      </div>
+      <div class="lb-row">
+        <div class="lb-rank">#4</div>
+        <div class="lb-provider"><div class="lb-avatar" style="background:linear-gradient(135deg,#00E676,#00A152)"></div><div><div class="lb-name">TashaSwing</div><div class="lb-tag">GBP/USD · SOL/USD</div></div></div>
+        <div class="lb-stat lb-hide">201</div>
+        <div><div class="lb-stat green">84.0%</div><div class="lb-bar-bg"><div class="lb-bar-fill" style="width:84%"></div></div></div>
+        <div class="lb-stat">80.4%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST / SECURITY ============ -->
+<section id="security">
+  <div class="container">
+    <div class="sec-head" data-reveal>
+      <span class="sec-eyebrow">Security & trust</span>
+      <h2 class="sec-title">Information first. Your funds never touch us.</h2>
+      <p class="sec-sub">FX Globe is an informational platform. We don't execute trades, hold deposits, or manage funds on your behalf.</p>
+    </div>
+    <div class="trust-grid" data-reveal>
+      <div class="trust-card">
+        <div class="trust-icon" style="background:rgba(68,138,255,0.12)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#448AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5.25 3.75 9.75 9 11 5.25-1.25 9-5.75 9-11V7l-9-5Z"/></svg></div>
+        <div class="trust-title">KYC-Verified Providers</div>
+        <div class="trust-desc">Every provider is identity-verified before they can post publicly.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background:rgba(0,230,118,0.12)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="trust-title">No Custody of Funds</div>
+        <div class="trust-desc">We never touch your money. Trades happen with your own broker, on your terms.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background:rgba(255,193,7,0.12)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
+        <div class="trust-title">Transparent Accuracy</div>
+        <div class="trust-desc">Every ranking comes from tracked outcomes, computed the same way for every provider.</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon" style="background:rgba(171,71,188,0.12)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#AB47BC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <div class="trust-title">Your Data, Your Control</div>
+        <div class="trust-desc">Delete your account and data at any time, in-app or from this site.</div>
+      </div>
+    </div>
+
+    <div class="risk-banner" data-reveal>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+      <div class="risk-banner-text"><strong>Risk disclosure.</strong> FX Globe is an informational and educational platform. It does not execute trades, manage funds, or provide regulated financial advice. Trading forex and cryptocurrencies involves substantial risk of loss. Only trade with capital you can afford to lose.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <div class="eyebrow" style="margin:0 auto 20px;width:fit-content"><span class="pulse"></span>Coming soon to Google Play</div>
+      <h2 class="cta-title">See today's signals before your next trade</h2>
+      <p class="cta-sub">FX Globe is finishing up testing now — join early to get notified the moment it's live.</p>
+      <div class="cta-actions">
+        <a href="mailto:fxglobe@cimkoconsulting.com?subject=Notify%20me%20at%20launch" class="btn btn-primary btn-lg">Notify Me at Launch</a>
+        <a href="#providers" class="btn btn-ghost btn-lg">Apply as a Provider</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <div class="logo-mark">FX</div>
+          <div class="brand-word">FX Globe</div>
+        </a>
+        <p class="foot-brand-desc">A trading signals marketplace connecting forex and crypto providers with traders who want transparent, tracked performance.</p>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Product</div>
+        <a href="#product">Signal Stream</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#providers">For Providers</a>
+        <a href="#security">Security</a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Company</div>
+        <a href="mailto:fxglobe@cimkoconsulting.com">Contact</a>
+        <a href="mailto:fxglobe@cimkoconsulting.com?subject=Support%20Request">Support</a>
+      </div>
+      <div class="foot-col">
+        <div class="foot-col-title">Legal</div>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="delete-account.html">Delete Account</a>
+      </div>
+    </div>
+    <p class="foot-disclaimer">FX Globe does not execute trades, manage user funds, or provide regulated financial advice. All signals shared on the platform are for informational purposes only. Trading forex and cryptocurrencies involves substantial risk of loss.</p>
+    <div class="foot-bottom">
+      <span>© 2026 FX Globe. All rights reserved.</span>
+      <span>Cimko Consulting</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Ambient candlestick field behind hero
+  const field = document.getElementById('heroCandles');
+  const heights = [80,130,60,170,95,210,75,150,110,190,65,140,100,220,85,160,120,180,70,145,105,200,90,155];
+  heights.forEach((h,i) => {
+    const c = document.createElement('div');
+    c.className = 'c';
+    c.style.height = h + 'px';
+    c.style.background = i % 3 === 0 ? '#EF5350' : '#00E676';
+    field.appendChild(c);
+  });
+
+  // ── Live ticker tape ──
+  // FX: Frankfurter (ECB reference rates, free, no key). Crypto: CoinGecko public API (free, no key).
+  // Falls back to a static snapshot only if both requests fail (offline, CORS block, etc.)
+  const track = document.getElementById('tickerTrack');
+  const FALLBACK_TICKS = [
+    {s:'EUR/USD', p:'1.0842', chg:0.24},
+    {s:'GBP/JPY', p:'186.40', chg:-0.11},
+    {s:'BTC/USD', p:'67,240', chg:2.18},
+    {s:'USD/JPY', p:'157.62', chg:0.08},
+    {s:'ETH/USD', p:'3,412', chg:-0.42},
+    {s:'GBP/USD', p:'1.2731', chg:-0.06},
+    {s:'SOL/USD', p:'168.90', chg:3.05},
+    {s:'AUD/USD', p:'0.6614', chg:0.15},
+  ];
+
+  function renderTicks(ticks) {
+    const row = ticks.map(t => `
+      <div class="tick-item">
+        <span class="sym">${t.s}</span>
+        <span class="px">${t.p}</span>
+        ${typeof t.chg === 'number' ? `<span class="chg ${t.chg >= 0 ? 'up':'down'}">${t.chg >= 0 ? '▲':'▼'} ${Math.abs(t.chg).toFixed(2)}%</span>` : ''}
+      </div>`).join('');
+    track.innerHTML = row + row; // duplicated for seamless marquee loop
+  }
+
+  async function loadLiveTicker() {
+    try {
+      const [fxRes, cryptoRes] = await Promise.all([
+        fetch('https://api.frankfurter.dev/v2/latest?base=USD&symbols=EUR,GBP,JPY,CAD,AUD'),
+        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true')
+      ]);
+      if (!fxRes.ok || !cryptoRes.ok) throw new Error('rate fetch failed');
+
+      const fx = await fxRes.json();
+      const crypto = await cryptoRes.json();
+      const r = fx.rates; // USD-based rates
+
+      // Build crosses from USD rates. No historical FX delta available from a single call,
+      // so FX % change is omitted (shown as pair+price only) unless a prior close is cached.
+      const eurUsd = 1 / r.EUR;
+      const gbpUsd = 1 / r.GBP;
+      const usdJpy = r.JPY;
+      const gbpJpy = gbpUsd * usdJpy;
+      const audUsd = 1 / r.AUD;
+      const usdCad = r.CAD;
+
+      const ticks = [
+        {s:'EUR/USD', p: eurUsd.toFixed(4)},
+        {s:'GBP/JPY', p: gbpJpy.toFixed(2)},
+        {s:'USD/JPY', p: usdJpy.toFixed(2)},
+        {s:'GBP/USD', p: gbpUsd.toFixed(4)},
+        {s:'AUD/USD', p: audUsd.toFixed(4)},
+        {s:'USD/CAD', p: usdCad.toFixed(4)},
+      ];
+
+      if (crypto.bitcoin) ticks.push({s:'BTC/USD', p: crypto.bitcoin.usd.toLocaleString(undefined,{maximumFractionDigits:0}), chg: crypto.bitcoin.usd_24h_change || 0});
+      if (crypto.ethereum) ticks.push({s:'ETH/USD', p: crypto.ethereum.usd.toLocaleString(undefined,{maximumFractionDigits:0}), chg: crypto.ethereum.usd_24h_change || 0});
+      if (crypto.solana) ticks.push({s:'SOL/USD', p: crypto.solana.usd.toLocaleString(undefined,{maximumFractionDigits:2}), chg: crypto.solana.usd_24h_change || 0});
+
+      renderTicks(ticks);
+    } catch (err) {
+      // Network blocked, offline, or API down — show a static snapshot rather than a broken ticker
+      renderTicks(FALLBACK_TICKS);
+    }
+  }
+
+  loadLiveTicker();
+  setInterval(loadLiveTicker, 60000); // refresh every 60s — well within free-tier limits
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // Respect reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in'));
+    document.documentElement.style.setProperty('--motion', '0');
+  }
+</script>
+
+</body>
+</html>

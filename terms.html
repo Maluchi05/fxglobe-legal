@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delete Your Account — FX Globe</title>
+<title>Terms of Service — FX Globe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,17 +43,17 @@
 
   .doc-hero {
     position: relative; padding: 168px 0 70px; overflow: hidden;
-    background: radial-gradient(ellipse 900px 400px at 85% 0%, rgba(239,83,80,0.12), transparent 65%);
+    background: radial-gradient(ellipse 900px 400px at 85% 0%, rgba(255,193,7,0.1), transparent 65%);
     border-bottom: 1px solid var(--line);
   }
   .doc-eyebrow {
     display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px;
-    letter-spacing: 0.06em; text-transform: uppercase; color: var(--red);
-    background: rgba(239,83,80,0.08); border: 1px solid rgba(239,83,80,0.24);
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);
+    background: rgba(255,193,7,0.08); border: 1px solid rgba(255,193,7,0.22);
     padding: 7px 13px; border-radius: 30px; margin-bottom: 22px;
   }
   .doc-title { font-size: 46px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 14px; max-width: 700px; }
-  .doc-sub { font-size: 15.5px; color: var(--text-dim); max-width: 560px; line-height: 1.7; }
+  .doc-meta { font-family: var(--mono); font-size: 12.5px; color: var(--text-dim); }
 
   .doc-body { display: grid; grid-template-columns: 260px 1fr; gap: 70px; padding: 70px 0 130px; }
   .toc { position: sticky; top: 100px; align-self: start; }
@@ -62,38 +62,19 @@
   .toc a:hover, .toc a.active { color: var(--blue); border-left-color: var(--blue); }
 
   .doc-content { max-width: 720px; }
-
-  .cta-block {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
-    padding: 28px; margin-bottom: 50px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  }
-  .cta-block-text { font-size: 14px; color: var(--text-dim); max-width: 320px; }
-  .cta-block-text strong { color: var(--text); display: block; font-size: 15.5px; margin-bottom: 6px; }
-  .cta-email-btn {
-    display: inline-flex; align-items: center; gap: 9px; background: var(--blue); color: #06101F;
-    font-weight: 700; font-size: 13.5px; padding: 13px 22px; border-radius: 11px; text-decoration: none;
-    white-space: nowrap; box-shadow: 0 4px 18px rgba(68,138,255,0.3); transition: transform 0.15s ease;
-  }
-  .cta-email-btn:hover { transform: translateY(-1px); }
-
-  .doc-section { margin-bottom: 54px; scroll-margin-top: 100px; }
+  .doc-section { margin-bottom: 46px; scroll-margin-top: 100px; }
   .doc-section:last-child { margin-bottom: 0; }
-  .doc-h2 { display: flex; align-items: center; gap: 13px; font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 18px; }
-  .doc-h2 .num { font-family: var(--mono); font-size: 13px; color: var(--blue); font-weight: 700; }
+  .doc-h2 { display: flex; align-items: center; gap: 13px; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 14px; }
+  .doc-h2 .num { font-family: var(--mono); font-size: 13px; color: var(--gold); font-weight: 700; }
   .doc-content p { font-size: 14.5px; color: var(--text-dim); line-height: 1.8; margin-bottom: 14px; }
   .doc-content p:last-child { margin-bottom: 0; }
-  .doc-content p strong, .doc-content li strong { color: var(--text); }
-  .doc-content ul { list-style: none; margin-top: 4px; }
-  .doc-content li { font-size: 14.5px; color: var(--text-dim); line-height: 1.7; padding-left: 22px; position: relative; margin-bottom: 12px; }
-  .doc-content li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
-  .doc-section.warn li::before { background: var(--red); }
 
-  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px; }
-  .type-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
-  .type-name { display: flex; align-items: center; gap: 9px; font-size: 14.5px; font-weight: 700; margin-bottom: 10px; }
-  .type-name .tag { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); }
-  .type-card.provider .tag { background: var(--gold); }
-  .type-card p { font-size: 13px; color: var(--text-dim); line-height: 1.65; margin: 0; }
+  .risk-card {
+    background: rgba(239,83,80,0.06); border: 1px solid rgba(239,83,80,0.25); border-radius: 14px;
+    padding: 20px 22px; display: flex; gap: 14px;
+  }
+  .risk-card svg { flex-shrink: 0; margin-top: 3px; }
+  .risk-card p { color: #F1A9A7; font-weight: 600; letter-spacing: 0.01em; margin: 0; }
 
   code { background: var(--surface-2); padding: 3px 9px; border-radius: 6px; font-family: var(--mono); font-size: 13px; color: var(--blue); }
 
@@ -115,8 +96,6 @@
     .doc-title { font-size: 30px; }
     .doc-body { grid-template-columns: 1fr; gap: 30px; padding: 40px 0 80px; }
     .toc { position: static; display: none; }
-    .cta-block { flex-direction: column; align-items: flex-start; }
-    .type-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -133,7 +112,7 @@
       <a href="index.html#providers">For Providers</a>
       <a href="index.html#leaderboard">Leaderboard</a>
       <a href="index.html#security">Security</a>
-      <a href="delete-account.html" class="active">Legal</a>
+      <a href="terms.html" class="active">Legal</a>
     </div>
     <a href="index.html#cta" class="btn btn-primary btn-sm">Get the App</a>
   </div>
@@ -141,71 +120,72 @@
 
 <header class="doc-hero">
   <div class="container">
-    <div class="doc-eyebrow">Account & Data Deletion</div>
-    <h1 class="doc-title">Delete your account and data</h1>
-    <p class="doc-sub">Request permanent deletion of your FX Globe account and all associated data at any time. This page explains what gets deleted, how long it takes, and how to submit your request.</p>
+    <div class="doc-eyebrow">Legal · Terms of Service</div>
+    <h1 class="doc-title">Terms of Service</h1>
+    <div class="doc-meta">Last updated December 2024 &nbsp;·&nbsp; Applies to the FX Globe mobile application</div>
   </div>
 </header>
 
 <div class="container doc-body">
   <aside class="toc">
     <div class="toc-label">On this page</div>
-    <a href="#in-app">01 — Delete in-app</a>
-    <a href="#how-it-works">02 — How it works</a>
-    <a href="#what-gets-deleted">03 — What gets deleted</a>
-    <a href="#before-you-request">04 — Before you request</a>
+    <a href="#acceptance">01 — Acceptance</a>
+    <a href="#service">02 — The service</a>
+    <a href="#responsibilities">03 — Your responsibilities</a>
+    <a href="#disclaimer">04 — Financial disclaimer</a>
+    <a href="#subscriptions">05 — Subscriptions</a>
+    <a href="#liability">06 — Liability</a>
+    <a href="#termination">07 — Termination</a>
+    <a href="#contact">08 — Contact</a>
   </aside>
 
   <main class="doc-content">
-    <div class="cta-block">
-      <div class="cta-block-text"><strong>Fastest way to delete</strong>Uninstalled the app? Email us directly and we'll handle it from our end.</div>
-      <a class="cta-email-btn" href="mailto:fxglobe@cimkoconsulting.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20FX%20Globe%20account%20and%20associated%20data.%0A%0AAccount%20email%20used%20to%20sign%20up%3A%20%0AAccount%20type%20(Consumer%20%2F%20Provider)%3A%20%0A%0AI%20understand%20this%20action%20is%20permanent%20and%20cannot%20be%20undone.">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#06101F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        Email to Request Deletion
-      </a>
-    </div>
-
-    <section class="doc-section" id="in-app">
-      <div class="doc-h2"><span class="num">01</span>Delete in-app (fastest)</div>
-      <p>Open the FX Globe app → <strong>Settings → Privacy & Security → Delete Account</strong>. Confirm your password, and your account and all associated data are permanently deleted immediately — no waiting period.</p>
+    <section class="doc-section" id="acceptance">
+      <div class="doc-h2"><span class="num">01</span>Acceptance</div>
+      <p>Using FX Globe constitutes acceptance of these terms. If you don't agree with any part of them, please don't use the app.</p>
     </section>
 
-    <section class="doc-section" id="how-it-works">
-      <div class="doc-h2"><span class="num">02</span>How the request works</div>
-      <ul>
-        <li>Email <code>fxglobe@cimkoconsulting.com</code> from the address linked to your account, or use the button above</li>
-        <li>Include the email you signed up with, and whether you hold a Consumer or Provider account</li>
-        <li>We verify the request came from the account owner, then trigger the same permanent deletion the in-app button uses — your account and data are removed immediately, not on a delay</li>
-        <li>You'll get a confirmation email once it's done, typically within 1–2 business days of us processing the request (the deletion itself is instant — the wait is just for us to verify it's really you)</li>
-      </ul>
+    <section class="doc-section" id="service">
+      <div class="doc-h2"><span class="num">02</span>The service</div>
+      <p>FX Globe connects traders with signal providers. We do not provide financial advice, execute trades, or manage funds on your behalf — the app is an informational and educational platform only.</p>
     </section>
 
-    <section class="doc-section" id="what-gets-deleted">
-      <div class="doc-h2"><span class="num">03</span>What gets deleted</div>
-      <div class="type-grid">
-        <div class="type-card">
-          <div class="type-name"><span class="tag"></span>Consumer accounts</div>
-          <p>Profile, saved signals, follows, notification tokens, interaction history</p>
-        </div>
-        <div class="type-card provider">
-          <div class="type-name"><span class="tag"></span>Provider accounts</div>
-          <p>Profile, posted signals, follower relationships, analytics, KYC records</p>
-        </div>
+    <section class="doc-section" id="responsibilities">
+      <div class="doc-h2"><span class="num">03</span>Your responsibilities</div>
+      <p>You agree to provide accurate account information, keep your credentials secure, comply with applicable laws in your jurisdiction, and accept full responsibility for any trading decisions you make based on information found on the platform.</p>
+    </section>
+
+    <section class="doc-section" id="disclaimer">
+      <div class="doc-h2"><span class="num">04</span>Financial disclaimer</div>
+      <div class="risk-card">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF5350" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+        <p>Trading forex and cryptocurrencies involves substantial risk. You may lose all invested capital. Signals shared on FX Globe are for informational purposes only and are not a recommendation to buy or sell any asset.</p>
       </div>
     </section>
 
-    <section class="doc-section warn" id="before-you-request">
-      <div class="doc-h2"><span class="num">04</span>Before you request deletion</div>
-      <ul>
-        <li>If you have an active paid subscription, mention it in your request — deleting your account does not automatically stop billing, and we'll help you cancel it as part of the process</li>
-        <li>Deletion is permanent. Signals you've posted, follower history, and performance stats cannot be recovered once removed</li>
-        <li>Some information may be retained where legally required — for example, transaction records for financial compliance — even after the rest of your data is deleted</li>
-      </ul>
+    <section class="doc-section" id="subscriptions">
+      <div class="doc-h2"><span class="num">05</span>Subscriptions</div>
+      <p>Once available, VIP subscriptions are non-refundable except where specified at time of purchase. Payments are processed securely through our payment provider.</p>
+    </section>
+
+    <section class="doc-section" id="liability">
+      <div class="doc-h2"><span class="num">06</span>Liability</div>
+      <p>FX Globe is not liable for trading losses, provider performance, or technical issues arising from use of the app. Accuracy statistics reflect historical performance and are not a guarantee of future results.</p>
+    </section>
+
+    <section class="doc-section" id="termination">
+      <div class="doc-h2"><span class="num">07</span>Termination</div>
+      <p>We may suspend or terminate accounts for policy violations, fraud, or behavior that harms other users or the platform.</p>
+    </section>
+
+    <section class="doc-section" id="contact">
+      <div class="doc-h2"><span class="num">08</span>Contact</div>
+      <p>Questions about these terms can be sent to <code>fxglobe@cimkoconsulting.com</code>.</p>
     </section>
 
     <div class="doc-footnav">
-      <a class="footnav-link" href="privacy-policy.html">← Privacy Policy</a>
-      <a class="footnav-link" href="terms.html">Terms of Service →</a>
+      <a class="footnav-link" href="delete-account.html">← Delete Account</a>
+      <a class="footnav-link" href="privacy-policy.html">Privacy Policy →</a>
     </div>
   </main>
 </div>
@@ -215,7 +195,7 @@
     <span>© 2026 FX Globe · Cimko Consulting</span>
     <div class="foot-links">
       <a href="privacy-policy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Delete Account</a>
       <a href="mailto:fxglobe@cimkoconsulting.com">Contact</a>
     </div>
   </div>
