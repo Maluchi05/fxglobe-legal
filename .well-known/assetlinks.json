@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fxglobe.app",
+      "sha256_cert_fingerprints": [
+        "E2:81:D4:A7:D3:41:7F:4B:21:32:C2:ED:FD:55:89:95:C1:D7:34:1E:D2:BB:0F:94:A4:79:0D:88:4C:B7:00:20",
+        "71:B0:C4:93:73:0E:AD:B6:F2:6D:0A:28:FA:13:37:19:16:9A:A6:7F:AA:2A:C7:39:CF:05:8B:B5:98:B0:21:5C"
+      ]
+    }
+  }
+]
